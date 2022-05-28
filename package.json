@@ -19,7 +19,7 @@
     "scripts"
   ],
   "scripts": {
-    "build": "rimraf public && rollup -c ssg/rollup.config.js && ts-node ssg/export.ts && rimraf ssg/lib/**",
+    "build": "rimraf dist && rollup -c ssg/rollup.config.js && ts-node ssg/export.ts && rimraf ssg/lib/**",
     "start": "vite"
   },
   "devDependencies": {

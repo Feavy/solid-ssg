@@ -8,12 +8,12 @@ const __dirname = path.dirname(__filename);
 
 const PAGES = ["index", "profile", "settings"];
 const pathToServer = __dirname+"/lib/index.js";
-const pathToPublic = "public";
+const pathToDist = "dist";
 
 renderStatic(
   PAGES.map(p => ({
     entry: pathToServer,
-    output: path.join(pathToPublic, `${p}.html`),
+    output: path.join(pathToDist, `${p}.html`),
     url: `/${p}`
   }))
 );

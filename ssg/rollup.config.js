@@ -47,7 +47,7 @@ export default [
     input: "web/src/index.tsx",
     output: [
       {
-        dir: "public/js",
+        dir: "dist/js",
         format: "esm"
       }
     ],
@@ -66,7 +66,7 @@ export default [
         targets: [
           {
             src: ["web/static/*"],
-            dest: "public"
+            dest: "dist"
           }
         ]
       })
