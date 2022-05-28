@@ -28,7 +28,7 @@ export default [
       {
         dir: "ssg/lib",
         exports: "auto",
-        format: "cjs"
+        format: "module"
       }
     ],
     external: ["solid-js", "solid-js/web"],

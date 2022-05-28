@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "Feavy",
   "license": "MIT",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/solidjs/solid/blob/main/packages/solid-ssr"
@@ -18,7 +19,7 @@
     "scripts"
   ],
   "scripts": {
-    "build": "rimraf public && rollup -c ssg/rollup.config.js && node --trace-warnings ssg/export.js && rimraf ssg/lib/**",
+    "build": "rimraf public && rollup -c ssg/rollup.config.js && ts-node ssg/export.ts && rimraf ssg/lib/**",
     "start": "vite"
   },
   "devDependencies": {
@@ -37,6 +38,7 @@
     "@rollup/plugin-typescript": "^8.3.2",
     "rimraf": "^3.0.2",
     "rollup-plugin-terser": "^7.0.2",
+    "ts-node": "^10.8.0",
     "tslib": "^2.4.0",
     "typescript": "^4.7.2",
     "vite": "^2.9.9",

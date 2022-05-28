@@ -1,6 +1,7 @@
-const fs = require("fs");
-const path = require("path");
-const server = require(process.argv[2]);
+import fs from "fs";
+import path from "path";
+
+import server from "../lib/index.js";
 
 async function write() {
   const res = await server({ url: process.argv[4] });
