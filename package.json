@@ -1,0 +1,39 @@
+{
+  "name": "solid-ssg",
+  "description": "SolidJS  (from https://github.com/solidjs/solid/blob/main/packages/solid-ssr)",
+  "version": "1.0.0",
+  "author": "Feavy",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/solidjs/solid/blob/main/packages/solid-ssr"
+  },
+  "exports": {
+    "./scripts": {
+      "require": "./scripts/index.js",
+      "import": "./scripts/index.mjs"
+    }
+  },
+  "files": [
+    "scripts"
+  ],
+  "scripts": {
+    "build": "rollup -c ssg/rollup.config.js && node --trace-warnings ssg/export.js && rimraf ssg/lib/**",
+    "start": "npx serve public -l 8080"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.7",
+    "@rollup/plugin-babel": "5.3.0",
+    "@rollup/plugin-commonjs": "21.0.1",
+    "@rollup/plugin-node-resolve": "13.1.2",
+    "babel-preset-solid": "^1.4.2",
+    "express": "^4.17.1",
+    "rollup": "^2.62.0",
+    "rollup-plugin-copy": "^3.4.0",
+    "shx": "^0.3.3",
+    "solid-js": "^1.4.3"
+  },
+  "dependencies": {
+    "rimraf": "^3.0.2"
+  }
+}
