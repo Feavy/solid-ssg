@@ -2,6 +2,7 @@ import nodeResolve from "@rollup/plugin-node-resolve";
 import common from "@rollup/plugin-commonjs";
 import babel from "@rollup/plugin-babel";
 import copy from "rollup-plugin-copy";
+import { terser } from "rollup-plugin-terser";
 
 export default [
   {
@@ -38,6 +39,7 @@ export default [
         babelHelpers: "bundled",
         presets: [["solid", { generate: "dom", hydratable: true }]]
       }),
+      terser(),
       common(),
       copy({
         targets: [
