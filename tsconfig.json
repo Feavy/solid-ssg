@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "incremental": true,
+    "composite": false,
+    "tsBuildInfoFile": "./node_modules/.cache",
+    "target": "esnext",
+    "lib": [
+      "esnext",
+      "DOM"
+    ],
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js",
+    "module": "esnext",
+    "rootDir": "./",
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "resolveJsonModule": true,
+    "noEmit": true,
+    "importHelpers": true,
+    "importsNotUsedAsValues": "error",
+    "preserveConstEnums": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "preserveSymlinks": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "useUnknownInCatchVariables": true,
+    "alwaysStrict": true,
+    "noImplicitReturns": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "skipLibCheck": true
+  }
+}

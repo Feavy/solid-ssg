@@ -1,8 +1,25 @@
-import nodeResolve from "@rollup/plugin-node-resolve";
+import { DEFAULTS, nodeResolve } from "@rollup/plugin-node-resolve";
 import common from "@rollup/plugin-commonjs";
 import babel from "@rollup/plugin-babel";
 import copy from "rollup-plugin-copy";
 import { terser } from "rollup-plugin-terser";
+import typescript from "@rollup/plugin-typescript";
+import { DEFAULT_EXTENSIONS } from '@babel/core';
+
+const typescriptExtensions = [
+  '.ts',
+  '.tsx'
+];
+
+const nodeResolveExtensions = [
+  ...(DEFAULTS.extensions),
+  ...typescriptExtensions
+];
+
+const babelExtensions = [
+  ...DEFAULT_EXTENSIONS,
+  ...typescriptExtensions
+];
 
 export default [
   {
@@ -16,8 +33,10 @@ export default [
     ],
     external: ["solid-js", "solid-js/web"],
     plugins: [
-      nodeResolve({ preferBuiltins: true, exportConditions: ["solid", "node"] }),
+      nodeResolve({ nodeResolveExtensions, preferBuiltins: true, exportConditions: ["solid", "node"] }),
+      typescript(),
       babel({
+        extensions: babelExtensions,
         babelHelpers: "bundled",
         presets: [["solid", { generate: "ssr", hydratable: true }]]
       }),
@@ -25,7 +44,7 @@ export default [
     ]
   },
   {
-    input: "web/src/index.js",
+    input: "web/src/index.tsx",
     output: [
       {
         dir: "public/js",
@@ -34,8 +53,10 @@ export default [
     ],
     preserveEntrySignatures: false,
     plugins: [
-      nodeResolve({ exportConditions: ["solid"] }),
+      nodeResolve({ extensions: nodeResolveExtensions, exportConditions: ["solid"] }),
+      typescript(),
       babel({
+        extensions: babelExtensions,
         babelHelpers: "bundled",
         presets: [["solid", { generate: "dom", hydratable: true }]]
       }),
