@@ -1,3 +1,5 @@
+import type { Component } from "solid-js";
+
 import { useContext, lazy, ErrorBoundary, Suspense, Switch, Match } from "solid-js";
 import { HydrationScript } from "solid-js/web";
 import { Link, RouteHOC, RouterContext } from "../router";
@@ -7,19 +9,10 @@ import Profile from "./Profile";
 const Home = lazy(() => import("./Home"));
 const Settings = lazy(() => import("./Settings"));
 
-const App = RouteHOC(() => {
-  //@ts-ignore
-  const [, pending, { matches }] = useContext(RouterContext);
-  return (
-    <html lang="en">
-      <head>
-        <title>🔥 Solid SSR 🔥</title>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="/styles.css" />
-        <HydrationScript />
-      </head>
-      <body>
+const App: Component = () => {
+    //@ts-ignore
+    const [, pending, { matches }] = useContext(RouterContext);
+    return (
         <div id="app">
           <ul class="inline">
             <li classList={{ selected: matches("index") }}>
@@ -65,10 +58,7 @@ const App = RouteHOC(() => {
             </ErrorBoundary>
           </div>
         </div>
-      </body>
-      <script type="module" src="/js/index.js" async></script>
-    </html>
-  );
-});
+    )
+};
 
 export default App;

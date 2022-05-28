@@ -19,7 +19,7 @@
   ],
   "scripts": {
     "build": "rimraf public && rollup -c ssg/rollup.config.js && node --trace-warnings ssg/export.js && rimraf ssg/lib/**",
-    "start": "npx serve public -l 8080"
+    "start": "vite"
   },
   "devDependencies": {
     "@babel/core": "^7.16.7",
@@ -38,6 +38,8 @@
     "rimraf": "^3.0.2",
     "rollup-plugin-terser": "^7.0.2",
     "tslib": "^2.4.0",
-    "typescript": "^4.7.2"
+    "typescript": "^4.7.2",
+    "vite": "^2.9.9",
+    "vite-plugin-solid": "^2.2.6"
   }
 }

@@ -1,5 +1,4 @@
 import { hydrate } from "solid-js/web";
-import App from "./components/App";
+import Browser from "./components/Browser";
 
-// entry point for browser
-hydrate(() => <App/>, document);
+hydrate(() => <Browser/>, document);

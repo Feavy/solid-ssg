@@ -1,7 +1,7 @@
 import { renderToStringAsync } from "solid-js/web";
-import App from "../web/src/components/App";
+import Browser from "../web/src/components/Browser";
 
 // entry point for server render
 export default async req => {
-  return await renderToStringAsync(() => <App url={req.url} />);
+  return await renderToStringAsync(() => <Browser url={req.url} />);
 };
